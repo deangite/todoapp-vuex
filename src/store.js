@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import * as types from './mutation-types'
 
 Vue.use(Vuex)
 
@@ -44,9 +45,18 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-
+    [types.ADD_TODO](state, todo){
+      state.todos.push({
+        id: todo.id,
+        title: todo.title,
+        completed: false,
+        editing: false
+      })
+    }
   },
   actions: {
-
+    setTodo({commit}, todo){
+      commit(types.ADD_TODO, todo)
+    }
   }
 })
