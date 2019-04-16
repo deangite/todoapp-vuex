@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
+import {mapGetters, mapActions} from 'vuex'
 export default {
   name: 'todo-filtered',
   computed: {
@@ -19,9 +19,7 @@ export default {
     }
   },
   methods: {
-    changeFilter(filter){
-      this.$store.state.filter = filter
-    }
+    ...mapActions(['changeFilter'])
   }
 }
 </script>

@@ -7,16 +7,14 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
+import {mapGetters, mapActions} from 'vuex'
 export default {
   name: 'todo-clear-completed',
   computed: {
     ...mapGetters(['showClearCompletedButton'])
   },
   methods: {
-    clearCompleted(){
-      this.$store.state.todos = this.$store.state.todos.filter(todo => !todo.completed)
-    }
+    ...mapActions(['clearCompleted'])
   }
 }
 </script>

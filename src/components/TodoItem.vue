@@ -37,6 +37,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
   name: 'todo-item',
   props: {
@@ -63,10 +64,7 @@ export default {
     }
   },
   methods: {
-    removeTodo(index){
-      // const index = this.$store.state.todos.findIndex(item => item.id = this.id)
-      this.$store.state.todos.splice(index, 1)
-    },
+    ...mapActions(['removeTodo']),
      editTodo(){
       this.beforeEditCache = this.title
       this.editing = true

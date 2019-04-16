@@ -65,26 +65,7 @@ export default {
       })
       this.newTodo = ''
       this.idForTodo += 1
-    },
-    finishedEdit(data){
-      const index = this.$store.state.todos.findIndex(item => item.id === data.id)
-      this.$store.state.todos.splice(index, 1, data)
-    },
-    // removeTodo(index){
-    //   this.$store.state.todos.splice(index, 1)
-    // },
-    // checkAllTodos(){
-    //   this.$store.state.todos.forEach(t => t.completed = event.target.checked)
-    // },
-    clearCompleted(){
-      this.$store.state.todos = this.$store.state.todos.filter(t => !t.completed)
     }
-  },
-  created(){
-    // eventBus.$on('removedTodo', (index) => this.removeTodo(index))
-    // eventBus.$on('finishedEdit', (data) => this.finishedEdit(data))
-    // eventBus.$on('checkAllChanged', (checked) => this.checkAllTodos(checked))
-    eventBus.$on('filterChanged', (filter) => this.$store.state.filter = filter)
   }
 }
 </script>

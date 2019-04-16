@@ -11,17 +11,14 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
 export default {
   name: 'todo-check-all',
   computed: {
-    anyRemaining() {
-      return this.$store.getters.anyRemaining
-    }
+    ...mapGetters(['anyRemaining'])
   },
   methods: {
-    allChecked(){
-      this.$store.state.todos.forEach(t => t.completed = event.target.checked)
-    }
+    ...mapActions(['allChecked'])
   }
 }
 </script>
